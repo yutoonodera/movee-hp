@@ -1,10 +1,12 @@
 {
-  "onody":{
-      "githubName": "yutoonodera",
-      "technique":"Spring Boot,Laravel,Express,AWS,VPS"
+  "小野寺　祐人": {
+    "githubName": "yutoonodera",
+    "technique": "Spring Boot,Laravel,Express,AWS,VPS",
+    "blog": "https://onody.hatenablog.com/entry/"
   },
-  "sasa":{
-      "githubName": "teamsasaki",
-      "technique":"ruby,golang"
+  "sasa": {
+    "githubName": "teamsasaki",
+    "technique": "ruby,golang",
+    "blog": ""
   }
 }
