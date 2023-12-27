@@ -1,8 +1,54 @@
+/* ヘッダーのスタイル */
+header {
+  background-color: #fff; /* ヘッダーの背景色を設定 */
+  padding: 10px 0; /* ヘッダーの余白を設定 */
+  position: fixed; /* ヘッダーを固定位置に配置 */
+  top: 0; /* ヘッダーを画面の上端に配置 */
+  width: 100%; /* ヘッダーの幅を100%に設定 */
+  z-index: 1000; /* ヘッダーを他の要素の上に表示 */
+}
+.content-container {
+  margin-top: 100px; /* ヘッダーの高さ分だけマージンを追加 */
+}
+.contact-button {
+  background-color: #00b7ff; /* ボタンの背景色を設定 */
+  color: #fff; /* ボタンのテキストカラーを設定 */
+  padding: 10px 20px; /* ボタンの余白を設定 */
+  border-radius: 5px; /* ボタンの角丸を設定 */
+  text-decoration: none; /* リンクの下線を非表示に設定 */
+}
+
+.contact-button:hover {
+  background-color: #0077cc; /* マウスホバー時の背景色を設定 */
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+/* ナビゲーションリンクのスタイル */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav li {
+  margin-right: 20px; /* リンク間のスペースを設定 */
+}
+
+/* スクロール対象のセクションにpadding-topを設定 */
+#home,
+#service,
+#about,
+#qa,
+#contact {
+  padding-top: 100px; /* ヘッダーの高さ分の余白を設定 */
+}
+li a {
+  text-decoration: none;
 }

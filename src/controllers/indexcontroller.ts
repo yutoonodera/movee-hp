@@ -23,7 +23,11 @@ export const handleIndexGet = async (req: Request, res: Response) => {
     const formattedLastMonth = year + "-" + month;
     // デバッグ情報をコンソールに出力
     // レンダリング時に Github データをテンプレートに渡す
-    res.render("index", { title: "movee", githubData, formattedLastMonth });
+    res.render("index", {
+      title: "株式会社movee",
+      githubData,
+      formattedLastMonth,
+    });
   } catch (error) {
     // エラーハンドリング
     console.error("エラー:", error);
