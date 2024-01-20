@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleIndexGet = void 0;
 const handleIndexGet = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // GitHubApi クラスをインポート
-    const { GithubApi } = require('../models/GithubApi');
-    const { Profile } = require('../models/Profile');
+    const { GithubApi } = require("../models/GithubApi");
+    const { Profile } = require("../models/Profile");
     console.log("indexページですよ");
     try {
         // Profile クラスのインスタンスを作成
@@ -22,13 +22,23 @@ const handleIndexGet = (req, res) => __awaiter(void 0, void 0, void 0, function*
         const githubApi = new GithubApi(profile);
         // Githubデータを取得
         const githubData = yield githubApi.getGithubData();
+        console.log("githubDataですう::" + JSON.stringify(githubData));
+        const currentDate = new Date();
+        currentDate.setMonth(currentDate.getMonth() - 1); // 1ヶ月前の日付を取得
+        const year = currentDate.getFullYear();
+        const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+        const formattedLastMonth = year + "-" + month;
         // デバッグ情報をコンソールに出力
         // レンダリング時に Github データをテンプレートに渡す
-        res.render('index', { title: 'movee', githubData });
+        res.render("index", {
+            title: "株式会社movee",
+            githubData,
+            formattedLastMonth,
+        });
     }
     catch (error) {
         // エラーハンドリング
-        console.error('エラー:', error);
+        console.error("エラー:", error);
     }
 });
 exports.handleIndexGet = handleIndexGet;
