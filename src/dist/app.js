@@ -21,8 +21,8 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    console.log('⚫︎⚫︎⚫︎⚫︎⚫︎app内に入っています⚫︎⚫︎⚫︎');
-    res.status(404).send('このページはありません。トップページは<a href="/">こちら</a>です。');
+    // next(createError(404));
+    next(res.status(404).send('申し訳ありません。こちらページはありません。トップページは<a href="/">こちら</a>です。'));
 });
 // error handler
 app.use(function (err, req, res, next) {
