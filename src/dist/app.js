@@ -20,10 +20,9 @@ app.use(express.static("public"));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 // catch 404 and forward to error handler
-// app.use(function (req: any, res: any, next: any) {
-//   // next(createError(404));
-//   next(res.status(404).send('申し訳ありません。こちらページはありません。トップページは<a href="/">こちら</a>です。'));
-// });
+app.use(function (req, res, next) {
+    res.status(404).send('申し訳ありません。このページはありません。トップページは<a href="/">こちら</a>です。');
+});
 // error handler
 app.use(function (err, req, res, next) {
     // 変更箇所
