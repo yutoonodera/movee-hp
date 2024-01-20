@@ -8,7 +8,7 @@ header {
   z-index: 1000; /* ヘッダーを他の要素の上に表示 */
 }
 .content-container {
-  margin-top: 100px; /* ヘッダーの高さ分だけマージンを追加 */
+  margin-top: 120px; /* ヘッダーの高さ分だけマージンを追加 */
 }
 .contact-button {
   background-color: #00b7ff; /* ボタンの背景色を設定 */
@@ -47,7 +47,7 @@ nav li {
 #about,
 #qa,
 #contact {
-  padding-top: 100px; /* ヘッダーの高さ分の余白を設定 */
+  padding-top: 120px; /* ヘッダーの高さ分の余白を設定 */
 }
 li a {
   text-decoration: none;
