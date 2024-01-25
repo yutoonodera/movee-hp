@@ -1,17 +1,17 @@
 extends layout
 
 block content
-  h2#home データ活用で未来を豊かにする
+  h2#home.passMRD データ活用で未来を豊かにする
 
   p 株式会社movee（モビー）は、データを活用したITツール・システムの開発・販売を行っております。
   p すでにあるデータを効率的に活用したり、また、データがない場合はデータを収集するITツールやシステムを開発・導入してビジネスに活用できるデータ環境の構築・分析を行います。
   p ご相談内容に応じた提案をさせていただきますのでお気軽にご相談ください。
-  h2#service サービス
+  h2#service.passMRD サービス
   ul
     li オープンデータやAPI連携データ活用のコンサルティング・ツール・システム開発
     li 社内データ活用のコンサルティング・ツール・システム開発
     li ユーザー行動データ収集ツール「mReactionData」の開発・販売
-  h2#about 会社情報
+  h2#about.passMRD 会社情報
   p 株式会社movee
   p 〒810-0001　福岡県福岡市中央区天神2丁目3-10　天神パインクレスト716
   p 050-5538-0382 &nbsp; info@movee.jp
@@ -19,7 +19,7 @@ block content
     each dataItem in githubData
       h3= dataItem.key
       ul
-      p 一般的なCRUD処理のシステム開発をベースに、PK重複のDBデータ移行、自社API開発、Salesforce Data Pipelineなどデータ活用周りの開発を経験。ユーザー行動データ収集ツール「mReactionData」開発中。
+      p.passMRD 一般的なCRUD処理のシステム開発をベースに、PK重複のDBデータ移行、自社API開発、Salesforce Data Pipelineなどデータ活用周りの開発を経験。ユーザー行動データ収集ツール「mReactionData」開発中。
       p= dataItem.technique
       p Github(Public Repo Only)
       ul
@@ -36,7 +36,7 @@ block content
   //- h2#bp お取引先
   //- p 株式会社テックミーブレインズ
   //- p 株式会社レインオンファニー
-  h2#qa Q&A
+  h2#qa.passMRD Q&A
   p よくある質問を載せています。
   p Q.システム開発は自社メンバーで行なっていますか？
   p A.自社エンジニアで開発しています。フロントエンド、バックエンド、インフラまで対応していますが、案件次第ではパートナーさんと開発する可能性もあります。
@@ -47,7 +47,7 @@ block content
   p Q.月10時間までなど、時間単位の開発も行っていますか？
   p A.時間単位のスポット開発も行っています。予算に合わせてこちらから提案することも可能です。お気軽にご相談ください。
 
-  h2#contact
+  h2#contact.passMRD
     a.contact-button お問い合わせ
   p お仕事のご依頼やご相談は050-5538-0382か、info@movee.jpよりご連絡ください。
   p スポット開発、協業などお気軽にどうぞ。ちなみにホームページはTypeScript、node.js、Expressで書いています。詳しくは
