@@ -1,6 +1,6 @@
 type ProfileData = {
   // すべてのキーが string であり、値が { githubName: string } であることを指定
-  [key: string]: { githubName: string; technique: string; blog: string };
+  [key: string]: {introduction: String; interest: String; githubName: string; technique: string; blog: string };
 };
 
 import profileData from "../assets/data/profile.json";
