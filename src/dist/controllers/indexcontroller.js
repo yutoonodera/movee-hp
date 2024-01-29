@@ -11,18 +11,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleIndexGet = void 0;
 const handleIndexGet = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    // GitHubApi クラスをインポート
-    const { GithubApi } = require("../models/GithubApi");
     const { Profile } = require("../models/Profile");
-    console.log("indexページですよ");
     try {
         // Profile クラスのインスタンスを作成
-        const profile = new Profile( /* ここにプロファイルデータを初期化するコードを追加 */);
-        // GithubApi クラスのインスタンスを作成
-        const githubApi = new GithubApi(profile);
-        // Githubデータを取得
-        const githubData = yield githubApi.getGithubData();
-        console.log("githubDataですう::" + JSON.stringify(githubData));
+        const profile = new Profile();
+        const profileData = yield profile.getCheckedProfileData();
+        console.log("profileDataです::" + JSON.stringify(profileData));
         const currentDate = new Date();
         currentDate.setMonth(currentDate.getMonth() - 1); // 1ヶ月前の日付を取得
         const year = currentDate.getFullYear();
@@ -32,7 +26,7 @@ const handleIndexGet = (req, res) => __awaiter(void 0, void 0, void 0, function*
         // レンダリング時に Github データをテンプレートに渡す
         res.render("index", {
             title: "株式会社movee",
-            githubData,
+            profileData,
             formattedLastMonth,
         });
     }

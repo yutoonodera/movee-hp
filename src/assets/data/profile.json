@@ -5,5 +5,20 @@
     "technique": "Spring Boot,Laravel,Express,AWS,VPS",
     "interest": "API,データベース,redis",
     "blog": "https://onody.hatenablog.com/entry/"
+  },
+  "テスト": {
+    "introduction":"一般的なCRUD処理の開発をベースにして、PK重複のDBデータ移行、データ連携用自社API開発、Salesforce Data Pipelineなどデータ活用周りの開発を経験。ユーザー行動データ収集ツール「mReactionData」開発中。",
+    "githubName": "synfinatic",
+    "technique": "Spring Boot,Laravel,Express,AWS,VPS",
+    "interest": "API,データベース,redis",
+    "blog": "https://onody.hatenablog.com/entry/"
+  },
+  "teamsasakiさん": {
+    "introduction":"一般的なCRUD処理の開発をベースにして、PK重複のDBデータ移行、データ連携用自社API開発、Salesforce Data Pipelineなどデータ活用周りの開発を経験。ユーザー行動データ収集ツール「mReactionData」開発中。",
+    "githubName": "teamsasaki",
+    "technique": "Spring Boot,Laravel,Express,AWS,VPS",
+    "interest": "API,データベース,redis",
+    "blog": "https://onody.hatenablog.com/entry/"
   }
+
 }

@@ -9,10 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const GithubApi_1 = require("../models/GithubApi");
-const Profile_1 = require("../models/Profile");
 test('ProfileのgetGithubRepositoryの概要', () => __awaiter(void 0, void 0, void 0, function* () {
-    const githubData = new GithubApi_1.GithubApi(new Profile_1.Profile);
+    //  const githubData = new GithubApi(new Profile);
     //console.log(await githubData.getGithubData());
 }));
 //以下テストを次のコミットで書く

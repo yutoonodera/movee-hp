@@ -2,7 +2,7 @@ import { Profile } from '../models/Profile';
 
 test('ProfileのgetGithubNameが複数取得できること', () => {
   const profile = new Profile();
-  const profileAllData = profile.getAllProfileData();
+  const profileAllData = profile.getInitProfileData();
 
   if (profileAllData) {
     for (const key in profileAllData) {

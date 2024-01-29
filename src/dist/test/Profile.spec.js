@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Profile_1 = require("../models/Profile");
 test('ProfileのgetGithubNameが複数取得できること', () => {
     const profile = new Profile_1.Profile();
-    const profileAllData = profile.getAllProfileData();
+    const profileAllData = profile.getInitProfileData();
     if (profileAllData) {
         for (const key in profileAllData) {
             if (Object.prototype.hasOwnProperty.call(profileAllData, key)) {
