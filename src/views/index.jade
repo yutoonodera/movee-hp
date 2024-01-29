@@ -16,14 +16,14 @@ block content
   p 〒810-0001　福岡県福岡市中央区天神2丁目3-10　天神パインクレスト716
   p 050-5538-0382 &nbsp; info@movee.jp
   h2 メンバー
-    each dataItem in githubData
+    each dataItem in profileData
       h3= dataItem.key
       ul
       p.passMRD= dataItem.introduction + dataItem.technique
       p 関心事:#{dataItem.interest}
       p Github(Public Repo Only)
       ul
-        each item in dataItem.data
+        each item in dataItem.githubdata
           li
             a(href=item.html_url, target="_blank", rel="noopener noreferrer")= item.name
             | &nbsp;
