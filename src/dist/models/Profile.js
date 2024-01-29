@@ -29,7 +29,7 @@ class Profile {
     }
     /**
      * Github APIからデータを取得する
-     * @returns
+     * @returns personalDataArray
      */
     getCheckedProfileData() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -50,7 +50,6 @@ class Profile {
                             cachedData.timestamp &&
                             Date.now() - cachedData.timestamp < cacheDuration) {
                             personalDataArray.push(cachedData);
-                            console.log("cachedataを使用");
                         }
                         else {
                             // GithubApi クラスのインスタンスを作成
@@ -67,7 +66,6 @@ class Profile {
                                 blog: profileInfo[key].blog,
                             };
                             fs_1.default.writeFileSync(cacheFilePath, JSON.stringify(dataToCache));
-                            //githubDataArray.push(response.data);
                             personalDataArray.push(dataToCache);
                         }
                     }
