@@ -47,6 +47,8 @@ export class GithubApi {
               data: response.data,
               timestamp: Date.now(),
               key: key,
+              introduction: profileInfo[key].introduction,
+              interest: profileInfo[key].interest,
               technique: profileInfo[key].technique,
               blog: profileInfo[key].blog,
             };

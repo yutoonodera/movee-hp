@@ -19,8 +19,8 @@ block content
     each dataItem in githubData
       h3= dataItem.key
       ul
-      p.passMRD 一般的なCRUD処理のシステム開発をベースに、PK重複のDBデータ移行、自社API開発、Salesforce Data Pipelineなどデータ活用周りの開発を経験。ユーザー行動データ収集ツール「mReactionData」開発中。
-      p= dataItem.technique
+      p.passMRD= dataItem.introduction + dataItem.technique
+      p 関心事:#{dataItem.interest}
       p Github(Public Repo Only)
       ul
         each item in dataItem.data
@@ -29,10 +29,10 @@ block content
             | &nbsp;
             | updated_at:#{item.updated_at.slice(0, 10)}
       - if (dataItem.blog.trim() !== '')
-        p 先月の振り返り
-        ul
-          li
-            a(href=dataItem.blog + '' + formattedLastMonth, target="_blank", rel="noopener noreferrer")= dataItem.blog + '' + formattedLastMonth
+        p
+         | 先月の振り返り:
+         a(href=dataItem.blog + '' + formattedLastMonth, target="_blank", rel="noopener noreferrer")= dataItem.blog + '' + formattedLastMonth
+
   //- h2#bp お取引先
   //- p 株式会社テックミーブレインズ
   //- p 株式会社レインオンファニー
