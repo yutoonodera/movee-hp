@@ -4,7 +4,6 @@ type ProfileData = {
 };
 
 import profileData from "../assets/data/profile.json";
-import axios from "axios";
 import fs from "fs";
 import path from "path";
 const { GithubApi } = require("../models/GithubApi");
@@ -21,13 +20,11 @@ export class Profile {
 
   /**
    * Github APIからデータを取得する
-   * @returns
+   * @returns personalDataArray
    */
-
   async getCheckedProfileData(): Promise<any[]> {
     const profileInfo = this.getInitProfileData();
     const cacheDuration = 24 * 60 * 60 * 1000; // キャッシュの有効期限 (24時間)
-
     const personalDataArray = [];
 
     for (const key in profileInfo) {
@@ -49,14 +46,11 @@ export class Profile {
             Date.now() - cachedData.timestamp < cacheDuration
           ) {
             personalDataArray.push(cachedData);
-            console.log("cachedataを使用");
           } else {
             // GithubApi クラスのインスタンスを作成
             const githubApi = new GithubApi();
-
             // Githubデータを取得
             const githubData = await githubApi.getGithubData(githubName);
-
             let dataToCache = {
               githubdata: githubData,
               timestamp: Date.now(),
@@ -67,7 +61,6 @@ export class Profile {
               blog: profileInfo[key].blog,
             };
             fs.writeFileSync(cacheFilePath, JSON.stringify(dataToCache));
-            //githubDataArray.push(response.data);
             personalDataArray.push(dataToCache);
           }
         } catch (error) {

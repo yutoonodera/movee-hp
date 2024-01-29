@@ -17,7 +17,7 @@ const axios_1 = __importDefault(require("axios"));
 class GithubApi {
     /**
      * Github APIからデータを取得する
-     * @returns
+     * @returns response.data
      */
     getGithubData(githubName) {
         return __awaiter(this, void 0, void 0, function* () {
