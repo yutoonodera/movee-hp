@@ -16,7 +16,6 @@ const handleIndexGet = (req, res) => __awaiter(void 0, void 0, void 0, function*
         // Profile クラスのインスタンスを作成
         const profile = new Profile();
         const profileData = yield profile.getCheckedProfileData();
-        console.log("profileDataです::" + JSON.stringify(profileData));
         const currentDate = new Date();
         currentDate.setMonth(currentDate.getMonth() - 1); // 1ヶ月前の日付を取得
         const year = currentDate.getFullYear();

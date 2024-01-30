@@ -7,6 +7,7 @@ import profileData from "../assets/data/profile.json";
 import fs from "fs";
 import path from "path";
 const { GithubApi } = require("../models/GithubApi");
+const { QiitaApi } = require("../models/QiitaApi");
 
 export class Profile {
   // getGithubNameメソッドの型指定
@@ -19,14 +20,13 @@ export class Profile {
   }
 
   /**
-   * Github APIからデータを取得する
+   * 個人データを取得する
    * @returns personalDataArray
    */
   async getCheckedProfileData(): Promise<any[]> {
     const profileInfo = this.getInitProfileData();
-    const cacheDuration = 24 * 60 * 60 * 1000; // キャッシュの有効期限 (24時間)
+    const cacheDuration = 1 * 60 * 60 * 1000; // キャッシュの有効期限 (1時間)
     const personalDataArray = [];
-
     for (const key in profileInfo) {
       if (Object.prototype.hasOwnProperty.call(profileInfo, key)) {
         let githubName = profileInfo[key].githubName;
@@ -51,8 +51,16 @@ export class Profile {
             const githubApi = new GithubApi();
             // Githubデータを取得
             const githubData = await githubApi.getGithubData(githubName);
+
+            let interests = profileInfo[key].interest;
+            const replacedInterests = interests.split(',').map((interestItem) => `title%3A'${interestItem}'`);
+            const convertedInterests = replacedInterests.join('+OR+');
+            const qiitaApi = new QiitaApi();
+            // Qiitaデータを取得
+            const qiitaData = await qiitaApi.getInterestDataAboutTitle(convertedInterests);
             let dataToCache = {
               githubdata: githubData,
+              qiitadata: qiitaData,
               timestamp: Date.now(),
               key: key,
               introduction: profileInfo[key].introduction,

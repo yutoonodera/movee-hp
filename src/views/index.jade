@@ -21,6 +21,12 @@ block content
       ul
       p.passMRD= dataItem.introduction + dataItem.technique
       p 関心事:#{dataItem.interest}
+      ul
+        each item in dataItem.qiitadata
+          li
+            a(href=item.url, target="_blank", rel="noopener noreferrer")= item.title
+            | &nbsp;
+            | updated_at:#{item.updated_at.slice(0, 10)}
       p Github(Public Repo Only)
       ul
         each item in dataItem.githubdata
