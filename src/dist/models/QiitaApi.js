@@ -22,7 +22,7 @@ class QiitaApi {
     getInterestDataAboutTitle(convertedInterests) {
         return __awaiter(this, void 0, void 0, function* () {
             //let url = `https://api.github.com/users/${interests}/repos?sort=pushed_at`;
-            let url = `https://qiita.com/api/v2/items?&query=${convertedInterests}&sort=created`;
+            let url = `https://qiita.com/api/v2/items?&query=${convertedInterests}&per_page=10&sort=created`;
             let response = yield axios_1.default.get(url);
             return response.data;
         });
