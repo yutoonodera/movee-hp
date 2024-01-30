@@ -17,6 +17,7 @@ const profile_json_1 = __importDefault(require("../assets/data/profile.json"));
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const { GithubApi } = require("../models/GithubApi");
+const { QiitaApi } = require("../models/QiitaApi");
 class Profile {
     // getGithubNameメソッドの型指定
     getInitProfileData() {
@@ -28,13 +29,13 @@ class Profile {
         }
     }
     /**
-     * Github APIからデータを取得する
+     * 個人データを取得する
      * @returns personalDataArray
      */
     getCheckedProfileData() {
         return __awaiter(this, void 0, void 0, function* () {
             const profileInfo = this.getInitProfileData();
-            const cacheDuration = 24 * 60 * 60 * 1000; // キャッシュの有効期限 (24時間)
+            const cacheDuration = 1 * 60 * 60 * 1000; // キャッシュの有効期限 (1時間)
             const personalDataArray = [];
             for (const key in profileInfo) {
                 if (Object.prototype.hasOwnProperty.call(profileInfo, key)) {
@@ -56,8 +57,15 @@ class Profile {
                             const githubApi = new GithubApi();
                             // Githubデータを取得
                             const githubData = yield githubApi.getGithubData(githubName);
+                            let interests = profileInfo[key].interest;
+                            const replacedInterests = interests.split(',').map((interestItem) => `title%3A'${interestItem}'`);
+                            const convertedInterests = replacedInterests.join('+OR+');
+                            const qiitaApi = new QiitaApi();
+                            // Qiitaデータを取得
+                            const qiitaData = yield qiitaApi.getInterestDataAboutTitle(convertedInterests);
                             let dataToCache = {
                                 githubdata: githubData,
+                                qiitadata: qiitaData,
                                 timestamp: Date.now(),
                                 key: key,
                                 introduction: profileInfo[key].introduction,
