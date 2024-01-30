@@ -20,24 +20,24 @@ block content
       h3= dataItem.key
       ul
       p.passMRD= dataItem.introduction + dataItem.technique
-      p 関心事:#{dataItem.interest}
-      ul
-        each item in dataItem.qiitadata
-          li
-            a(href=item.url, target="_blank", rel="noopener noreferrer")= item.title
-            | &nbsp;
-            | updated_at:#{item.updated_at.slice(0, 10)}
-      p Github(Public Repo Only)
+      - if (dataItem.blog.trim() !== '')
+        p
+         | 先月の振り返り）
+         a(href=dataItem.blog + '' + formattedLastMonth, target="_blank", rel="noopener noreferrer")= dataItem.blog + '' + formattedLastMonth
+      p Github）
       ul
         each item in dataItem.githubdata
           li
             a(href=item.html_url, target="_blank", rel="noopener noreferrer")= item.name
             | &nbsp;
             | updated_at:#{item.updated_at.slice(0, 10)}
-      - if (dataItem.blog.trim() !== '')
-        p
-         | 先月の振り返り:
-         a(href=dataItem.blog + '' + formattedLastMonth, target="_blank", rel="noopener noreferrer")= dataItem.blog + '' + formattedLastMonth
+      p 関心事）#{dataItem.interest}
+      ul
+        each item in dataItem.qiitadata
+          li
+            a(href=item.url, target="_blank", rel="noopener noreferrer")= item.title
+            | &nbsp;
+            | updated_at:#{item.updated_at.slice(0, 10)}
 
   //- h2#bp お取引先
   //- p 株式会社テックミーブレインズ
