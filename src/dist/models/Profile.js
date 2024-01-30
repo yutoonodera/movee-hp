@@ -34,6 +34,7 @@ class Profile {
      */
     getCheckedProfileData() {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log('foreverのテストです');
             const profileInfo = this.getInitProfileData();
             const cacheDuration = 1 * 60 * 60 * 1000; // キャッシュの有効期限 (1時間)
             const personalDataArray = [];
