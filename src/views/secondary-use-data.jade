@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  h2#home.passMRD データの二次利用とは
+  p データの二次利用とは、他の目的のために自己または他者が事前に収集しているデータを利用することです。具体的にはWebサービスがAPI公開している記事データを取得してオリジナルのオウンドメディアを作る、官公庁が公開している地震ハザードマップAPIからデータを取得して危険エリアをマッピングしたアプリを開発する、などです。
+  p すでに存在するデータを別の角度から有効活用することです。
+  h2 有益なデータがたくさん外部公開されている
+  p インターネット上には有益なデータがたくさん公開されています。
+  p 官公庁はもちろん、民間企業もデータを公開して二次利用を促しています。基本的には各公開元が用意しているAPIを使うことでデータの取得が可能です。
+
+  table(border="1", style="border-collapse: collapse;")
+    caption APIの一例
+    tr
+      th 提供元
+      th 参考サイト
+    tr
+      td 国土交通省
+      td
+        a(href="https://api-catalog.e-gov.go.jp/info/ja/apicatalog/view/69", target="_blank") 不動産取引価格情報取得API
+    tr
+      td Google社
+      td
+        a(href="https://console.cloud.google.com/apis/library?hl=ja&pli=1", target="_blank") GoogleAPI ライブラリ
+    tr
+      td 株式会社はてな
+      td
+        a(href="https://developer.hatena.ne.jp/ja/documents/blog/apis/atom/", target="_blank") はてなブログAtomPub
+    tr
+      td 株式会社　日本取引所グループ
+      td
+        a(href="https://jpx-jquants.com/", target="_blank") J-Quants API
+  p データを有効活用することで提供元は自社PRにもなりますし、利用側もデータを集める労力が大幅に減るため、双方にとってメリットがあります。
+  h2 社内データを有効活用する
+  p 二次利用は他社が提供しているAPIデータだけではありません。
+  p 社内で業務システムやECサイトなどを運営しているのであればDBにはデータが溜まっているはずです。またシステムをお持ちではなくてもエクセルやスプレッドシートに社内データを管理しているかもしれません。
+  p それらを二次利用することで新たなサービスを生み出すことが可能です。
+  h2 データは活用してこそ価値が生まれる
+  p 取得したデータは、新たな視点で自社の業種にあうツールやシステム開発、またはデータ分析に繋げることで、新たな付加価値が生まれます。
+  p 二次活用データを活用したサービス事例は
+      a(href="https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/ee1fd65a-cb8c-4baa-b711-7a45648c6804/bccbc588/20230929_resources_od100_all_01.pdf", target="_blank") こちらの官公庁資料
+      | が参考になるかもしれません。
+  p どんな二次利用が最適なのかは業種や会社ごとに異なります。データの二次利用にご興味がある担当者の方はお気軽にご連絡ください。ざっくばらんに状況をお伺いした後に御社に最適なデータ二次利用の提案をさせていただきます。
+
+  a(href="https://onody.hatenablog.com/archive/category/%E3%83%87%E3%83%BC%E3%82%BF%E5%88%A9%E6%B4%BB%E7%94%A8", target="_blank") データ活用のブログ
+
+  h2#contact.passMRD
+    a.contact-button お問い合わせ
+  p お仕事のご依頼やご相談は050-5538-0382か、info@movee.jpよりご連絡ください。
+
+
+
