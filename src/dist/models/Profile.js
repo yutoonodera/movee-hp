@@ -40,9 +40,9 @@ class Profile {
             const personalDataArray = [];
             for (const key in profileInfo) {
                 if (Object.prototype.hasOwnProperty.call(profileInfo, key)) {
-                    let githubName = profileInfo[key].githubName;
+                    let profileName = profileInfo[key].profileName;
                     let dirPath = path_1.default.join(__dirname, "..", "assets", "data");
-                    let cacheFilePath = path_1.default.join(dirPath, `${githubName}_github_cache.json`);
+                    let cacheFilePath = path_1.default.join(dirPath, `${profileName}_profiledata_cache.json`);
                     try {
                         let cachedData = null;
                         if (fs_1.default.existsSync(cacheFilePath)) {
@@ -57,7 +57,7 @@ class Profile {
                             // GithubApi クラスのインスタンスを作成
                             const githubApi = new GithubApi();
                             // Githubデータを取得
-                            const githubData = yield githubApi.getGithubData(githubName);
+                            const githubData = yield githubApi.getGithubData(profileInfo[key].githubName);
                             let interests = profileInfo[key].interest;
                             const replacedInterests = interests.split(',').map((interestItem) => `title%3A'${interestItem}'`);
                             const convertedInterests = replacedInterests.join('+OR+');
