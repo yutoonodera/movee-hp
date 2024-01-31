@@ -2,15 +2,14 @@ extends layout
 
 block content
   h2#home.passMRD データ活用で未来を豊かにする
-
   p 株式会社movee（モビー）は、データを活用したITツール・システムの開発・販売を行っております。
   p すでにあるデータを効率的に活用したり、また、データがない場合はデータを収集するITツールやシステムを開発・導入してビジネスに活用できるデータ環境の構築・分析を行います。
   p ご相談内容に応じた提案をさせていただきますのでお気軽にご相談ください。
   h2#service.passMRD サービス
   ul
     li ユーザー行動データ収集ツール「mReactionData」の開発・販売
-    li API連携データ（サービスデータ、オープンデータ）活用のコンサルティング・ツール・システム開発 (API連携データとは？)
-    li 社内データ活用のコンサルティング・ツール・システム開発 (社内データとは？)
+    li データ（サービスデータ、オープンデータ、社内データなど）二次利用のコンサルティング・ツール・システム開発
+  a(href="/secondary-use-data")データ二次利用とは？
 
   h2#about.passMRD 会社情報
   p 株式会社movee
@@ -38,7 +37,7 @@ block content
           li
             a(href=item.url, target="_blank", rel="noopener noreferrer")= item.title
             | &nbsp;
-            | updated_at:#{item.updated_at.slice(0, 10)}
+            | updated_at:#{item.created_at.slice(0, 10)}
 
   //- h2#bp お取引先
   //- p 株式会社テックミーブレインズ
