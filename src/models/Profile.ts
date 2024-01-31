@@ -1,6 +1,6 @@
 type ProfileData = {
   // すべてのキーが string であり、値が { githubName: string } であることを指定
-  [key: string]: {introduction: String; interest: String; githubName: string; technique: string; blog: string };
+  [key: string]: {profileName:String; introduction: String; interest: String; githubName: string; technique: string; blog: string };
 };
 
 import profileData from "../assets/data/profile.json";
@@ -30,11 +30,11 @@ export class Profile {
     const personalDataArray = [];
     for (const key in profileInfo) {
       if (Object.prototype.hasOwnProperty.call(profileInfo, key)) {
-        let githubName = profileInfo[key].githubName;
+        let profileName = profileInfo[key].profileName;
         let dirPath = path.join(__dirname, "..", "assets", "data");
         let cacheFilePath = path.join(
           dirPath,
-          `${githubName}_github_cache.json`
+          `${profileName}_profiledata_cache.json`
         );
         try {
           let cachedData = null;
@@ -51,7 +51,7 @@ export class Profile {
             // GithubApi クラスのインスタンスを作成
             const githubApi = new GithubApi();
             // Githubデータを取得
-            const githubData = await githubApi.getGithubData(githubName);
+            const githubData = await githubApi.getGithubData(profileInfo[key].githubName);
 
             let interests = profileInfo[key].interest;
             const replacedInterests = interests.split(',').map((interestItem) => `title%3A'${interestItem}'`);
