@@ -24,7 +24,7 @@ const handleIndexGet = (req, res) => __awaiter(void 0, void 0, void 0, function*
         // デバッグ情報をコンソールに出力
         // レンダリング時に Github データをテンプレートに渡す
         res.render("index", {
-            title: "株式会社movee",
+            title: "株式会社movee/データ活用で未来を豊かにする",
             profileData,
             formattedLastMonth,
         });
