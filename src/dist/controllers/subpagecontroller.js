@@ -24,7 +24,7 @@ const handleSubPageGet = (req, res) => __awaiter(void 0, void 0, void 0, functio
         // // デバッグ情報をコンソールに出力
         // レンダリング時に Github データをテンプレートに渡す
         res.render("secondary-use-data", {
-            title: "株式会社movee",
+            title: "データの二次利用とは",
         });
     }
     catch (error) {
