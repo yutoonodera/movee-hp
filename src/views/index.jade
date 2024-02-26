@@ -38,7 +38,20 @@ block content
             a(href=item.url, target="_blank", rel="noopener noreferrer")= item.title
             | &nbsp;
             | created_at:#{item.created_at.slice(0, 10)}
-
+  h2 新着の福岡イベント（ConnpassAPI）
+  p ※'福岡'というキーワードを含んだイベントを新着順で表示しています
+  each dataItem in connpassData
+    each item in dataItem.connpassApiData
+      ul
+        li
+          a(href=item.event_url, target="_blank", rel="noopener noreferrer") #{item.title}
+          | &nbsp;
+          | （定員：
+          if item.limit
+            | #{item.accepted}/#{item.limit}
+          else
+            | #{item.accepted}/？
+          |&nbsp;場所：#{item.place}&nbsp;開催日時: #{item.started_at.slice(0, 16)} 〜 #{item.ended_at.slice(0, 16)}）
   //- h2#bp お取引先
   //- p 株式会社テックミーブレインズ
   //- p 株式会社レインオンファニー
