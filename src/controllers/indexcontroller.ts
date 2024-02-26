@@ -2,10 +2,13 @@ import { Request, Response } from "express";
 
 export const handleIndexGet = async (req: Request, res: Response) => {
   const { Profile } = require("../models/Profile");
+  const { Connpass } = require("../models/Connpass");
   try {
     // Profile クラスのインスタンスを作成
     const profile = new Profile();
     const profileData = await profile.getCheckedProfileData();
+    const connpass = new Connpass('福岡');
+    const connpassData = await connpass.get();
     const currentDate = new Date();
     currentDate.setMonth(currentDate.getMonth() - 1); // 1ヶ月前の日付を取得
     const year = currentDate.getFullYear();
@@ -16,6 +19,7 @@ export const handleIndexGet = async (req: Request, res: Response) => {
     res.render("index", {
       title: "株式会社movee/データ活用で未来を豊かにする",
       profileData,
+      connpassData,
       formattedLastMonth,
     });
   } catch (error) {
