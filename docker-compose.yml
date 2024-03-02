@@ -6,6 +6,7 @@ services:
         # 環境変数
         environment:
             - DEBUG=app:*
+            - TZ=Asia/Tokyo  # 日本時間に設定
         tty: true
         # ホスト側のポート：コンテナのポート
         ports:

@@ -42,6 +42,7 @@ nav li {
 }
 
 /* スクロール対象のセクションにpadding-topを設定 */
+#weather,
 #home,
 #service,
 #about,

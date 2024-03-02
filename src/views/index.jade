@@ -1,13 +1,41 @@
 extends layout
 
 block content
+  h3#weather 今日の天気予報@天神
+  ul
+    each dataItem in weatherData
+      ul
+        - var count = 0;
+        each item in dataItem.weatherApiData
+          if count < 6
+            li(style="display:inline-block; margin-right: 20px;")
+              //- ここはscript.に外だししたい
+              - const dtTxt = new Date(item.dt_txt);
+              - dtTxt.setHours(dtTxt.getHours() + 9);
+              - const month = String(dtTxt.getMonth() + 1).padStart(2, '0');
+              - const day = String(dtTxt.getDate()).padStart(2, '0');
+              - const hour = String(dtTxt.getHours()).padStart(2, '0');
+              - const minute = String(dtTxt.getMinutes()).padStart(2, '0');
+              | #{month}/#{day} #{hour}:#{minute}
+              br
+              | #{item.weather[0].description}
+              br
+              | #{(item.pop * 100).toFixed(0)}%
+              br
+              | #{(Math.round((item.main.temp_min - 273.15) * 10) / 10)}℃
+              br
+              img(src='https://openweathermap.org/img/wn/' + item.weather[0].icon + '@2x.png')
+            - count++;
   h1#home.passMRD データ活用で未来を豊かにする
   p 株式会社movee（モビー）は、データを活用したITツール・システムの開発・販売を行っております。
   p すでにあるデータを効率的に活用したり、また、データがない場合はデータを収集するITツールやシステムを開発・導入してビジネスに活用できるデータ環境の構築・分析を行います。
   p ご相談内容に応じた提案をさせていただきますのでお気軽にご相談ください。
   h2#service.passMRD サービス
   ul
-    li ユーザー行動データ収集ツール「mReactionData」の開発・販売
+    li
+      | ユーザー行動データ収集ツール「
+      a(href="https://jp.mreactiondata.com/") mReactionData
+      | 」の開発・販売、と書きたいのですがエラーになります。
     li データ（サービスデータ、オープンデータ、社内データなど）二次利用のコンサルティング・ツール・システム開発
   a(href="/secondary-use-data")データ二次利用とは？
 
@@ -38,7 +66,7 @@ block content
             a(href=item.url, target="_blank", rel="noopener noreferrer")= item.title
             | &nbsp;
             | created_at:#{item.created_at.slice(0, 10)}
-  h2 新着の福岡イベント（ConnpassAPI）
+  h2 福岡の新着イベント（ConnpassAPI）
   p ※'福岡'というキーワードを含んだイベントを新着順で表示しています
   each dataItem in connpassData
     each item in dataItem.connpassApiData

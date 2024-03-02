@@ -11,14 +11,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleIndexGet = void 0;
 const handleIndexGet = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const FUKUOKA = '福岡';
+    const TENJIN_LATITUDE = '33.5902';
+    const TENJIN_LONGITUDE = '130.3976';
     const { Profile } = require("../models/Profile");
     const { Connpass } = require("../models/Connpass");
+    const { Weather } = require("../models/Weather");
     try {
         // Profile クラスのインスタンスを作成
         const profile = new Profile();
         const profileData = yield profile.getCheckedProfileData();
-        const connpass = new Connpass('福岡');
+        const connpass = new Connpass(FUKUOKA);
         const connpassData = yield connpass.get();
+        const weather = new Weather(TENJIN_LATITUDE, TENJIN_LONGITUDE);
+        const weatherData = yield weather.getFiveDays();
+        console.log('weatherData::' + JSON.stringify(weatherData));
         const currentDate = new Date();
         currentDate.setMonth(currentDate.getMonth() - 1); // 1ヶ月前の日付を取得
         const year = currentDate.getFullYear();
@@ -30,6 +37,7 @@ const handleIndexGet = (req, res) => __awaiter(void 0, void 0, void 0, function*
             title: "株式会社movee/データ活用で未来を豊かにする",
             profileData,
             connpassData,
+            weatherData,
             formattedLastMonth,
         });
     }
