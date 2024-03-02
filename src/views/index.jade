@@ -43,7 +43,7 @@ block content
   p 株式会社movee
   p 〒810-0001　福岡県福岡市中央区天神2丁目3-10　天神パインクレスト716
   p 050-5538-0382 &nbsp; info@movee.jp
-  h2 メンバー
+  h2#member.passMRD  メンバー
     each dataItem in profileData
       h3= dataItem.key
       ul
@@ -66,7 +66,7 @@ block content
             a(href=item.url, target="_blank", rel="noopener noreferrer")= item.title
             | &nbsp;
             | created_at:#{item.created_at.slice(0, 10)}
-  h2 福岡の新着イベント（ConnpassAPI）
+  h2#event.passMRD 福岡の新着イベント（ConnpassAPI）
   p ※'福岡'というキーワードを含んだイベントを新着順で表示しています
   each dataItem in connpassData
     each item in dataItem.connpassApiData
@@ -85,14 +85,10 @@ block content
   //- p 株式会社レインオンファニー
   h2#qa.passMRD Q&A
   p よくある質問を載せています。
-  p Q.システム開発は自社メンバーで行なっていますか？
-  p A.自社エンジニアで開発しています。フロントエンド、バックエンド、インフラまで対応していますが、案件次第ではパートナーさんと開発する可能性もあります。
   p Q.開発を相談する場合はどのような流れになりますか？
   p A.まずはオンラインか直接お会いして、開発したいシステムの概要をお聞きします。その後にお見積書を作成させていただき、双方問題なければ開発に着手いたします。
   p Q.相談してから開発着手まではどれぐらいかかりますか？
   p A.内容を伺って、お見積もり提出までに早くて1週間、内容のすり合わせにお時間がかかる場合は1ヶ月ほど時間を要する場合があります。開発着手はエンジニアのリソース状況によリますが、早ければ見積り合意後にすぐ着手いたします。お見積もり段階でリソース状況も共有させていただいております。ご相談・お見積もり作成は無料ですのでまずはお気軽にご相談ください。
-  p Q.月10時間までなど、時間単位の開発も行っていますか？
-  p A.時間単位のスポット開発も行っています。予算に合わせてこちらから提案することも可能です。お気軽にご相談ください。
 
   h2#contact.passMRD
     a.contact-button お問い合わせ
