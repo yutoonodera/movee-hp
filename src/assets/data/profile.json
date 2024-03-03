@@ -1,7 +1,7 @@
 {
   "小野寺 祐人": {
     "profileName":"yuto_onodera",
-    "introduction":"一般的なCRUD処理の開発をベースにして、PK重複のDBデータ移行、データ連携用自社API開発、Salesforce Data Pipelineなどデータ活用周りの開発を経験。ユーザー行動データ収集ツール「mReactionData」開発中。",
+    "introduction":"一般的なCRUD処理の開発をベースにして、PK重複のDBデータ移行、データ連携用自社API開発、Salesforce Data Pipelineなどデータ活用周りの開発を経験。ここ数年は要求定義、要件定義、設計、工程管理などSE業務が７割ほど。自社サービス「mReactionData」開発者。",
     "githubName": "yutoonodera",
     "technique": "Spring Boot,Laravel,Express,AWS,VPS",
     "interest": "API,DB,redis,UML",

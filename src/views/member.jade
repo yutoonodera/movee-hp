@@ -1,0 +1,48 @@
+extends layout
+
+block content
+
+  h1#home.passMRD データ活用で未来を豊かにする
+  h2#heading.passMRD  メンバー
+    each dataItem in profileData
+      h3= dataItem.key
+      ul
+      p.passMRD= dataItem.introduction + dataItem.technique
+      - if (dataItem.blog.trim() !== '')
+        p
+         | 先月の振り返り）
+         a(href=dataItem.blog + '' + formattedLastMonth, target="_blank", rel="noopener noreferrer")= dataItem.blog + '' + formattedLastMonth
+      p Github）
+      ul
+        each item in dataItem.githubdata
+          li
+            a(href=item.html_url, target="_blank", rel="noopener noreferrer")= item.name
+            | &nbsp;
+            | updated_at:#{item.updated_at.slice(0, 10)}
+      p 関心事）#{dataItem.interest}
+      ul
+        each item in dataItem.qiitadata
+          li
+            a(href=item.url, target="_blank", rel="noopener noreferrer")= item.title
+            | &nbsp;
+            | created_at:#{item.created_at.slice(0, 10)}
+  h2#heading.passMRD 福岡の新着イベント（ConnpassAPI）
+  p もしかしたらメンバーが以下イベントに参加しているかもしれません。その際はよろしくお願いします。
+  p ※'福岡'というキーワードを含んだイベントを新着順で表示しています
+  each dataItem in connpassData
+    each item in dataItem.connpassApiData
+      ul
+        li
+          a(href=item.event_url, target="_blank", rel="noopener noreferrer") #{item.title}
+          | &nbsp;
+          | （定員：
+          if item.limit
+            | #{item.accepted}/#{item.limit}
+          else
+            | #{item.accepted}/？
+          |&nbsp;場所：#{item.place}&nbsp;開催日時: #{item.started_at.slice(0, 16)} 〜 #{item.ended_at.slice(0, 16)}）
+  h2#contact.passMRD
+    a.contact-button お問い合わせ
+  p お仕事のご依頼やご相談は050-5538-0382か、info@movee.jpよりご連絡ください。
+  p スポット開発、協業などお気軽にどうぞ。ちなみにホームページはTypeScript、node.js、Expressで書いています。詳しくは
+    a(href="https://esa-pages.io/p/sharing/20913/posts/58/74eea07bb61c93dbaa09.html", target="_blank") こちら

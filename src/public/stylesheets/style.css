@@ -42,8 +42,8 @@ nav li {
 }
 
 /* スクロール対象のセクションにpadding-topを設定 */
-#weather,
-#member,
+#heading,
+#achievement,
 #event,
 #home,
 #service,
