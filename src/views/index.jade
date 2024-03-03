@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h3#weather 今日の天気予報@天神
+  h3#heading 今日の天気予報@天神
   ul
     each dataItem in weatherData
       ul
@@ -43,46 +43,37 @@ block content
   p 株式会社movee
   p 〒810-0001　福岡県福岡市中央区天神2丁目3-10　天神パインクレスト716
   p 050-5538-0382 &nbsp; info@movee.jp
-  h2#member.passMRD  メンバー
-    each dataItem in profileData
-      h3= dataItem.key
-      ul
-      p.passMRD= dataItem.introduction + dataItem.technique
-      - if (dataItem.blog.trim() !== '')
-        p
-         | 先月の振り返り）
-         a(href=dataItem.blog + '' + formattedLastMonth, target="_blank", rel="noopener noreferrer")= dataItem.blog + '' + formattedLastMonth
-      p Github）
-      ul
-        each item in dataItem.githubdata
-          li
-            a(href=item.html_url, target="_blank", rel="noopener noreferrer")= item.name
-            | &nbsp;
-            | updated_at:#{item.updated_at.slice(0, 10)}
-      p 関心事）#{dataItem.interest}
-      ul
-        each item in dataItem.qiitadata
-          li
-            a(href=item.url, target="_blank", rel="noopener noreferrer")= item.title
-            | &nbsp;
-            | created_at:#{item.created_at.slice(0, 10)}
-  h2#event.passMRD 福岡の新着イベント（ConnpassAPI）
-  p ※'福岡'というキーワードを含んだイベントを新着順で表示しています
-  each dataItem in connpassData
-    each item in dataItem.connpassApiData
-      ul
-        li
-          a(href=item.event_url, target="_blank", rel="noopener noreferrer") #{item.title}
-          | &nbsp;
-          | （定員：
-          if item.limit
-            | #{item.accepted}/#{item.limit}
-          else
-            | #{item.accepted}/？
-          |&nbsp;場所：#{item.place}&nbsp;開催日時: #{item.started_at.slice(0, 16)} 〜 #{item.ended_at.slice(0, 16)}）
-  //- h2#bp お取引先
-  //- p 株式会社テックミーブレインズ
-  //- p 株式会社レインオンファニー
+  a(href="/member")メンバーはこちら
+
+  h2#achievement.passMRD  実績
+
+  table(border="1", style="border-collapse: collapse;")
+    caption 実績
+    tr
+      th システム
+      th 工程
+      th 技術
+      th 業種
+    tr
+      td 営業支援システム
+      td 要件定義、基本設計、詳細設計、製造、テスト、リリース
+      td PHP7、OctoberCMS、Svelte、MySQL、Kintone、VPS、Github
+      td マーケティング
+    tr
+      td TシャツECシステム
+      td 要求定義、要件定義、基本設計
+      td PHP7、EC-CUBE4系
+      td アパレル
+    tr
+      td 決済アプリ
+      td 要件定義、基本設計、詳細設計、製造、テスト
+      td Java8、Vue.js3、SQL Server、Github
+      td 金融
+    tr
+      td 人事労務業務システム
+      td 要求定義、要件定義、基本設計
+      td Java、Oracle
+      td 電力
   h2#qa.passMRD Q&A
   p よくある質問を載せています。
   p Q.開発を相談する場合はどのような流れになりますか？

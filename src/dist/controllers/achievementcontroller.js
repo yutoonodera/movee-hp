@@ -9,11 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleSubPageGet = void 0;
-const handleSubPageGet = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.handleAchievementGet = void 0;
+const handleAchievementGet = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        res.render("secondary-use-data", {
-            title: "データの二次利用とは",
+        res.render("achievement", {
+            title: "株式会社movee/実績",
         });
     }
     catch (error) {
@@ -21,4 +21,4 @@ const handleSubPageGet = (req, res) => __awaiter(void 0, void 0, void 0, functio
         console.error("エラー:", error);
     }
 });
-exports.handleSubPageGet = handleSubPageGet;
+exports.handleAchievementGet = handleAchievementGet;
