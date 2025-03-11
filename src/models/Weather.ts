@@ -37,7 +37,8 @@
             console.log('weatherキャッシュです');
             weatherDataArray.push(passedCachedData);
           }else{
-            let url = `https://api.openweathermap.org/data/2.5/forecast?lat=33.5902&lon=130.3976&lang=ja&appid=a3e771e9cfdc65f95dd062b1e86d1679`;
+            //xxxxxxxxxxxxxはopenweathermapアカウントに紐づく
+            let url = `https://api.openweathermap.org/data/2.5/forecast?lat=33.5902&lon=130.3976&lang=ja&appid=xxxxxxxxxxxxx`;
             let response = await axios.get(url);
             console.log('response.data.list.main::'+JSON.stringify(response.data.list));
             let dataToCache = {
